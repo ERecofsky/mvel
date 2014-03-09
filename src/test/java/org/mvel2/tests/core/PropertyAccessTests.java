@@ -393,4 +393,9 @@ public class PropertyAccessTests extends AbstractTest {
         // ignore
       }
     }
+    
+    public void testMVEL304() {
+        test("map=['foo':'bar'];map.mvel304='bar2'");
+    }
+
 }
