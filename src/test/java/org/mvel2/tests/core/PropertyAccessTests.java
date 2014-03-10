@@ -2,6 +2,7 @@ package org.mvel2.tests.core;
 
 import org.mvel2.MVEL;
 import org.mvel2.ParserContext;
+import org.mvel2.UnresolveablePropertyException;
 import org.mvel2.integration.PropertyHandler;
 import org.mvel2.integration.PropertyHandlerFactory;
 import org.mvel2.integration.VariableResolverFactory;
@@ -393,4 +394,13 @@ public class PropertyAccessTests extends AbstractTest {
         // ignore
       }
     }
+    
+  public void testNullSafeVoidMethodInvocation() {
+    try {
+      test("this.?populate().name");
+      fail("NullPointerException expected");
+    } catch (Exception e) {
+      // TODO What type of exception should be thrown in this case?
+    }
+  }
 }
